@@ -25,8 +25,19 @@ public class Lyric {
 
     }
 
-    public String next() {
-        return iterator.next();
+    public String getCurrentLine() {
+        String result = null;
+        if (iterator.hasNext()) {
+            result = iterator.next();
+            iterator.previous();
+        }
+        return result;
+    }
+
+    public void advance() {
+        if (iterator.hasNext()) {
+            iterator.next();
+        }
     }
 
 //    look ahead (or back) without moving iterator
